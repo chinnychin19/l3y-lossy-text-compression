@@ -23,10 +23,15 @@ Example:
 ## Decoding (with example)
 
 Desired function: `decode(String lossy_text) --> String`, where `lossy_text` is output from our `decode()` function. This should ideally output the original text for > 90% of the words.
-- Step 1: Identify the boundaries of words in the input string. This is really easy if we included spaces in the encoded string. Fortunately, a single regular expression can accurately capture all of the words in the input string: `/\w(?:\d\w)?/g` (You can play with regular expressions at https://regex101.com/.)
+- Step 1: Identify the boundaries of words in the input string. This is really easy if we included spaces in the encoded string. Fortunately, a single regular expression can accurately capture all of the words in the input string whether or not they are space separated: `/\w(?:\d\w)?/g` (You can play with regular expressions at https://regex101.com/.)
 - Step 2: Replace the word with our guess of the original word
     - If the word is one or two characters (i.e. the encoded word is of the form "a" or "a0b"), this is deterministic.
     - Otherwise, this requires some stats. We can make our best guess at the original word by basing guesses on a set of training texts.
+
+Example:
+- lossy_text: "h3o i a0m a r3t"
+- decoded guess option 1: "hello i am a robot" (100% correct)
+- decoded guess option 2: "hello i am a reset" (80% correct)
 
 ## Open question
 
