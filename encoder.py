@@ -74,4 +74,3 @@ if __name__ == "__main__":
   encoded = encode(full_text)
   with open("output_texts/{}.encoded.txt".format(title), 'w') as output_file:
     output_file.write(encoded)
-  # TODO: 
