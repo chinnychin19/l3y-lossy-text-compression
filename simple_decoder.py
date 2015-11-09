@@ -55,7 +55,7 @@ def decode(text):
         decoded_words.append(encoded_word + " ")
   return "".join(decoded_words)
 
-def decodeWord(encoding): # TODO
+def decodeWord(encoding):
   if len(encoding) is 1:
     return encoding
   if encoding in STATS:
@@ -65,27 +65,6 @@ def decodeWord(encoding): # TODO
   # blanks with underscores
   num_between = int(encoding[1:-1])
   return encoding[0] + ("_"*num_between) + encoding[-1]
-
-def containsARealWord(word):
-  return re.match(CONTAINS_WORD_RE_STRING, word) is not None
-
-def leadingPunctuation(word):
-  m = LEADING_PUNCTUATION_RE.search(word)
-  if m is None:
-    return None
-  return m.group(0) # the whole match
-
-def trailingPunctuation(word):
-  m = TRAILING_PUNCTUATION_RE.search(word)
-  if m is None:
-    return None
-  return m.group(0) # the whole match
-
-def stripWord(word):
-  m = STRIP_WORD_RE.search(word)
-  if m is None:
-    return None
-  return m.group(1) # the match between leading and trailing punctuation
 
 
 if __name__ == "__main__":
