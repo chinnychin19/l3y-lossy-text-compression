@@ -126,6 +126,10 @@ if __name__ == "__main__":
     quit(1)
   num_correct = 0
   for i in xrange(num_original_words):
-    if original_words[i].lower() == decoded_words[i].lower():
+    original_word = original_words[i].lower()
+    decoded_word = decoded_words[i].lower()
+    if original_word == decoded_word:
       num_correct += 1
+    else:
+      print "Mismatch: '{}' != '{}'".format(original_word, decoded_word)
   print "Percent correct: {}%".format(num_correct*10000/num_original_words/100.)
