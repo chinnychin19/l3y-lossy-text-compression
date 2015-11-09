@@ -114,14 +114,14 @@ def decode(text):
 
 # encoding is an encoded ngram
 def decodeNGram(encoding_ngram):
-  if len(encoding_ngram) is 1:
-    return encoding_ngram
+  last_word = encoding_ngram.split()[-1]
+  if len(last_word) is 1:
+    return last_word
   if encoding_ngram in STATS:
     return STATS[encoding_ngram][0][1]
   # if we reach here, we haven't encountered this 
   # encoding in the training. So we just fill the 
   # blanks with underscores
-  last_word = encoding_ngram.split()[-1]
   num_between = int(last_word[1:-1])
   return last_word[0] + ("_"*num_between) + last_word[-1]
 
