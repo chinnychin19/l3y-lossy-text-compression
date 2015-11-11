@@ -138,7 +138,6 @@ def prune_to_real_word_list(ngram):
   return ret
 
 
-
 if __name__ == "__main__":
   if len(sys.argv) != 3:
     print "Expected a book title and a value for N (length of n-gram)!"
