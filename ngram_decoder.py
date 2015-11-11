@@ -151,8 +151,10 @@ if __name__ == "__main__":
 
   # Train your algorithm!
   N = int(sys.argv[2])
-  training_text_titles = ["frankenstein"]
+  training_text_titles = ["dorian", "earnest", "frankenstein", "tarzan", "alice", "beowulf", "sawyer"]
   for training_title in training_text_titles:
+    if training_title == title:
+      continue
     training_file_name = "original_texts/{}.full.txt".format(training_title)
     training_text = read_file(training_file_name)
     do_training(training_text)
@@ -182,6 +184,6 @@ if __name__ == "__main__":
     decoded_word = decoded_words[i].lower()
     if original_word == decoded_word:
       num_correct += 1
-    else:
-      print "Mismatch: '{}' != '{}'".format(original_word, decoded_word)
+    # else:
+    #   print "Mismatch: '{}' != '{}'".format(original_word, decoded_word)
   print "Percent correct: {}%".format(num_correct*10000/num_original_words/100.)
